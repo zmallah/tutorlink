@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 const schema = mongoose.schema;
 const UserSchema = require('./schemas/UserSchema');
 
-const user = mongoose.model('Users', UserSchema);
+const User = mongoose.model('Users', UserSchema);
 
 const create = (req) => {
-    var newuser = new user ({
+    var newuser = new User ({
         _id: new mongoose.Types.ObjectId(),
         username: req.body.username,
         password: req.body.password,
@@ -14,14 +14,25 @@ const create = (req) => {
         group: null
     });
     
-    user.create(function (err, newuser) {
+    User.create(function (err, newuser) {
         if (err) return handleError(err);
     });
     
     newuser.save(function (err, newuser){
         if (err) return handleError(err);
     });
-
 }
 
-module.exports = {create};
+
+const verifyLogin = async (req) => {
+    var user = await User.findOne({username: req.body.username});
+    console.log(user);
+    if(req.body.password === user.password){
+        return {'user': user, 'loginSuccess': 'true'};
+    }else{
+        return {'user': user, 'loginSuccess': 'false'};
+    }
+    
+} 
+
+module.exports = {create,verifyLogin};
