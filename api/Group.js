@@ -10,7 +10,7 @@ const create = (req) => {
         name: req.body.name,
         owner: req.body.owner,
         tutor: req.body.tutor,
-        members: req.body.members,
+        members: [],
         date: req.body.date,
         cost: req.body.cost,
         active: req.body.active,
