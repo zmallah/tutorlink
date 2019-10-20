@@ -10,8 +10,8 @@ const create = (req) => {
         _id: new mongoose.Types.ObjectId(),
         username: req.body.username,
         password: req.body.password,
-        rating: 100,
-        group: null
+        rating: req.body.rating,
+        group: req.body.group
     });
     
     User.create(function (err, newuser) {
