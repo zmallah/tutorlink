@@ -32,8 +32,8 @@ const create = async (req) => {
 }
 
 const update = async (req) => {
-    const result = await Group.update({name: req.body.name});
+    var group = Group.findOne({name: req.body.name});
     console.log(result);
 }
 
-module.exports = {create};
+module.exports = {create, update};

@@ -29,6 +29,11 @@ app.post('/api/Groups/create', (req, res) => {
   res.send({result});
 });
 
+app.post('/api/Groups/update', (req, res) =>{
+  Group.update(req);
+  res.send({updateSuccess: true});
+});
+
 app.listen(app.port, () => console.log(`Listening on port ${app.port}`));
 
 module.exports = app;
