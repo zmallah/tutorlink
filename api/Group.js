@@ -3,8 +3,6 @@ const mongoose = require('mongoose');
 const schema = mongoose.schema;
 const GroupSchema = require('./schemas/GroupSchema');
 const Group = mongoose.model('Groups', GroupSchema);
-const ArchiveSchema = require('./schemas/ArchiveSchema');
-const Archive = require('./Archive');
 
 const create = (req) => {
     var newGroup = new Group({
@@ -79,11 +77,11 @@ const delet = async (req) => {
     //same idea here. user clicks on a group from a list
     //and that sends the request which sends _id
     var group = await Group.findOne({name: req.body.name});
+    console.log(group);
     if(group === null){
         return {'group': null, 'deleteSuccess': false};
     }else{
         group.display = false;
-        await Archive.add(group);
         return {'group': group, 'deleteSuccess': true};
     }
 }

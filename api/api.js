@@ -5,17 +5,11 @@ const db = require('./db');
 
 const User = require('./User');
 const Group = require('./Group');
-const Archive = require('./Archive');
 const app = express();
 app.port = 5000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-var archive = Archive.find();
-if(archive === null){
-  Archive.create();
-}
 
 app.post('/api/users/create', (req, res) => {
   User.create(req);

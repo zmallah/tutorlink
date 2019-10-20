@@ -6,7 +6,7 @@ let GroupSchema = new mongoose.Schema({
     name: String,
     owner: String,
     tutor: String,
-    members: [{UserSchema}],
+    members: Array,
     date: Date,
     cost: Number,
     active: Boolean,
