@@ -35,9 +35,12 @@ const create = (req) => {
 
 //too lazy to do relevant first sort
 const find = async (req) => {
-    var list = await Group.find({$and: [{$or: [{name: req.body.name},
-                                {subject: req.body.subject}]},
-                                {display: true}]});
+    // var list = await Group.find({$and: [{$or: [{name: req.body.name},
+    //                             {subject: req.body.subject}]},
+    //                             {display: true}]});
+
+    var list = await Group.find({});
+    console.log(list);
     return list;
 }
 
