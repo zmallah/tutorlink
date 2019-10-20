@@ -24,8 +24,8 @@ const Navigation = (props) => {
         <Navbar.Brand>
           <img
             src={logo}
-            height="36"
-            width="115"
+            height="30"
+            width="130"
             className="d-inline-block logoNav"
             alt="Tutorlink"
           />

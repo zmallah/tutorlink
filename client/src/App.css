@@ -83,10 +83,21 @@ ul.header li a {
   padding-top: 80px;
 }
 
+.btn{
+  height: 46px;
+  border-radius: 30px;
+  border: solid 1px ;
+  background-color: #F9564F;
+  border-color: #F9564F;
+  color: #ffffff;
+  font-size: 14px;
+  display: inline;
+}
+
 .loginForm .LoginButton {
   width: 186px;
   height: 46px;
-  border-radius: 26px;
+  border-radius: 30px;
   border: solid 1px ;
   background-color: #F9564F;
   border-color: #F9564F;
@@ -137,18 +148,22 @@ ul.header li a {
 }
 
 .search {
-  border-radius: 30px;
+  border-top-right-radius: 30px !important;
+  border-bottom-right-radius: 30px !important;
   min-width: 100px;
-  max-width: 800px;
+  max-width: 80%;
+  height: 46px;
 }
 
 .search-pre {
-  border-radius: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  height: 46px;
 }
 
-.searchbar {
-  margin: 0 auto;
-  justify-content: center;
+.searchbar .btn{ 
+  margin-left: 3px;
+  width: 14%
 }
 
 .modal-body h3{
@@ -180,3 +195,4 @@ ul.header li a {
   padding-left: 2px;
   padding-top: 1px;
 }
+

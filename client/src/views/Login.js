@@ -23,7 +23,7 @@ const Login = (props) => {
             <Image
               src={logo}
               width="270px"
-              height="80px"
+              height="50px"
               className="logo"
               alt="Tutorlink"
             />
