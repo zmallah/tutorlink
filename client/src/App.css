@@ -1,22 +1,198 @@
-.App {
-  text-align: center;
+body,
+html {
+  background-color: #FFFFFF;
+  margin: 0;
+  font-family: 'Roboto';
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
+h1,
+h2,
+p,
+ul,
+li {
+  font-family: 'Roboto';
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+ul.header li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+}
+
+ul.header {
+  background-color: #F9564F;
+  padding: 0;
+}
+
+ul.header li a {
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block;
+}
+
+
+.login-BackgroundImage {
+  background-image: url("./assets/background.png");
+  background-repeat: repeat;
+  background-size: cover;
+  font-family: 'Roboto';
+  overflow: hidden;
+}
+
+.container {
+  max-width: 100%;
+  padding: 0;
+  padding-top: 0;
+}
+
+.loginBackground {
+  padding: 0;
+  padding-top: 0;
+  opacity: 0.54;
+  background-image: linear-gradient(226deg, #2179b1, #F9564F);
+  height: 100%;
+  width: 100vw;
+  margin: 0;
+}
+
+.loginDiv {
+  float: right;
+  background-color: #FFF;
+  height: 100vh;
+  max-width: 480px;
+  min-width: 400px;
+  justify-content: left;
+}
+.loginBackground{
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.loginContent {
+  padding: 50px;
+  padding-top: 130px;
 }
 
-.App-link {
-  color: #09d3ac;
+.loginForm {
+  font-family: 'Roboto';
+  padding-top: 80px;
 }
+
+.btn{
+  height: 46px;
+  border-radius: 30px;
+  border: solid 1px ;
+  background-color: #F9564F;
+  border-color: #F9564F;
+  color: #ffffff;
+  font-size: 14px;
+  display: inline;
+}
+
+.loginForm .LoginButton {
+  width: 186px;
+  height: 46px;
+  border-radius: 30px;
+  border: solid 1px ;
+  background-color: #F9564F;
+  border-color: #F9564F;
+  margin-top: 40px;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.loginForm input {
+  width: 280px;
+  height: 46px;
+  margin-top: 38px;
+  margin-left: 10px;
+  border-radius: 30px;
+  font-size: 14px;
+  padding-left: 10px;
+  border: solid 1px #cecece;
+  background-color: #ffffff;
+}
+
+
+.loginForm .Log-In {
+  width: 70px;
+  height: 19px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.19;
+  letter-spacing: normal;
+  text-align: left;
+  color: #45474b;
+}
+
+.loginForm .Forgot-Password {
+  height: 16px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  text-align: right;
+  color: #2179b1;
+  margin-top: 50px;
+}
+
+.search {
+  border-top-right-radius: 30px !important;
+  border-bottom-right-radius: 30px !important;
+  min-width: 100px;
+  max-width: 80%;
+  height: 46px;
+}
+
+.search-pre {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  height: 46px;
+}
+
+.searchbar .btn{ 
+  margin-left: 3px;
+  width: 14%
+}
+
+.modal-body h3{
+  height: 14px;
+  opacity: 0.8;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: left;
+  color: #393b3e;
+}
+
+.modal-body p{
+  height: 14px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: left;
+  color: #45474b;
+  display: block;
+  padding-left: 2px;
+  padding-top: 1px;
+}
+

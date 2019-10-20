@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 
+import EnterName from '../components/EnterName';
 import EnterUsername from '../components/EnterUsername';
 import EnterPass from '../components/EnterPass';
 import logo from '../assets/logo.png';
@@ -23,13 +24,17 @@ const Login = (props) => {
             <Image
               src={logo}
               width="270px"
-              height="50px"
+              height="80px"
               className="logo"
               alt="Tutorlink"
             />
             
-            {!email ? <EnterUsername continue={continueToPass} />  : <EnterPass email={email} setLoggedIn={setLoggedIn}/>}
+            {
 
+              <EnterName/>
+
+            }
+            
           </div>
         </Col>
       </Row>
