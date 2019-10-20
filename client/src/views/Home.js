@@ -13,7 +13,7 @@ const Home = (props) => {
       <Navigation user={user} />
       <SearchBar setShowCreate={setShowCreate}/>
       {showCreate ? <CreateGroup showCreate={showCreate} setShowCreate={setShowCreate}/> : null }
-      <Groups />
+      <Groups user={user}/>
     </div>
 
   )

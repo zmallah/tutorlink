@@ -2,15 +2,36 @@ import React, { useState } from "react";
 
 import { Card, Button, Modal, Row, Container } from "react-bootstrap";
 
+const API_URL = 'http://localhost:5000'
+
 const TutorPreview = props => {
     const [show, setShow] = useState(false);
-    const {group} = props;
+    const {group, user} = props;
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     console.log(group);
+
+    const register = () => {
+
+        fetch(API_URL + '/api/Groups/update', {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "_id": group._id,
+                "user": user
+            }),
+          }).then((res) => res.json()).then(resJson => {
+            alert("You're in!");
+          })
+    
+    }
+
     return (
         <>
-            <Card style={{ width: "16rem", marginTop: "5px" }}>
+            <Card style={{ width: "16rem", margin: "5px" }}>
                 {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                 <Card.Body>
                     <Card.Title>{group.name}</Card.Title>
@@ -52,7 +73,7 @@ const TutorPreview = props => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="primary" onClick={register}>
                         Register
                      </Button>
                 </Modal.Footer>

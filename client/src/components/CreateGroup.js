@@ -12,6 +12,7 @@ const CreateGroup = (props) => {
         "subject": "Physics",
         "description": "Some quick example text to build on the card title and make up the bulk of the card's content."
     };
+    
 
     return (
             <Modal show={showCreate} onHide={handleClose} size="lg" className="CreateGroup">
@@ -38,7 +39,7 @@ const CreateGroup = (props) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="primary">
                         Create
                      </Button>
                 </Modal.Footer>

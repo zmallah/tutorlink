@@ -9,6 +9,8 @@ const Groups = (props) => {
 
     const [groups, setGroups] = useState();
     const [tP, setTP] = useState();
+
+    const {user} = props;
     useEffect(() => {
        
         fetch(API_URL + '/api/Groups/find', {
@@ -22,7 +24,7 @@ const Groups = (props) => {
           }).then((res) => res.json()).then(resJson => {
             var tutorPreviews = [];
             Object.keys(resJson).forEach(function(group) {
-                tutorPreviews.push(<TutorPreview group={resJson[group]}/>)
+                tutorPreviews.push(<TutorPreview group={resJson[group]} user={user}/>)
             });
             setTP(tutorPreviews);
           })

@@ -84,7 +84,6 @@ ul.header li a {
 }
 
 .btn{
-  height: 46px;
   border-radius: 30px;
   border: solid 1px ;
   background-color: #F9564F;
@@ -166,6 +165,9 @@ ul.header li a {
   width: 14%
 }
 
+.searchbar {
+  margin-top: 5px;
+}
 .modal-body h3{
   height: 14px;
   opacity: 0.8;
