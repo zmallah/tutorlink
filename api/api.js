@@ -12,10 +12,7 @@ app.port = 5000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var archive = Archive.findOne({name: 'arc'});
-if(archive === null){
-  Archive.create();
-}
+Archive.create();
 
 app.post('/api/users/create', (req, res) => {
   User.create(req);
@@ -44,7 +41,7 @@ app.post('/api/Groups/update', async (req, res) =>{
   res.send(result);
 });
 
-app.post('/api/Groups/delete', async(req, res) =>{
+app.post('/api/Groups/delet', async(req, res) =>{
   var result = await Group.delet(req);
   res.send(result);
 });
