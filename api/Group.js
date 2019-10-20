@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const schema = mongoose.schema;
 const GroupSchema = require('./schemas/GroupSchema');
 const Group = mongoose.model('Groups', GroupSchema);
+const ArchiveSchema = require('./schemas/ArchiveSchema');
+const Archive = require('./Archive');
 
 const create = (req) => {
     var newGroup = new Group({
@@ -61,7 +63,7 @@ const update = async (req) => {
         if(req.body.name !== null) group.name = req.body.name;
         if(req.body.owner !== null) group.owner = req.body.owner;
         if(req.body.tutor !== null) group.tutor = req.body.tutor;
-        if(req.body.user !== null) group.members.update({user: req.body.user})
+        if(req.body.user !== null) group.members.push({user: req.body.user})
         if(req.body.date !== null) group.date = req.body.date;
         if(req.body.cost !== null) group.cost = req.body.cost;
         if(req.body.active !== null) group.active = req.body.active;
@@ -81,8 +83,7 @@ const delet = async (req) => {
         return {'group': null, 'deleteSuccess': false};
     }else{
         group.display = false;
-        var archive = await Archive.findOne({name: 'arc'});
-        await archive.add(group);
+        await Archive.add(group);
         return {'group': group, 'deleteSuccess': true};
     }
 }

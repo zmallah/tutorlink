@@ -9,7 +9,7 @@ const create = () =>{
     var newArchive = new Archive({
         _id: new mongoose.Types.ObjectId(),
         name: 'arc',
-        groups: null
+        groups: []
     })
 
     Archive.create(function (err, newArchive){
@@ -24,7 +24,7 @@ const create = () =>{
 const add = async (group) => {
     //search by group name
     var archive = await Archive.findOne({name: 'arc'});
-    archive.groups.update({group: group});
+    archive.groups.push(group);
 }
 
 const find = async () => {
