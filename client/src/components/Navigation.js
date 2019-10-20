@@ -3,7 +3,6 @@ import logo from '../assets/logo.png';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { NavLink } from "react-router-dom";
 
-import SearchBar from './SearchBar';
 
 const Navigation = (props) => {
 
@@ -25,8 +24,8 @@ const Navigation = (props) => {
         <Navbar.Brand>
           <img
             src={logo}
-            height="30"
-            width="100"
+            height="36"
+            width="115"
             className="d-inline-block logoNav"
             alt="Tutorlink"
           />
@@ -34,7 +33,6 @@ const Navigation = (props) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="NavBarCollapse">
           <Nav className="mr-auto items">
-            <SearchBar/>
           </Nav>
           <Nav className="float-right">
             {

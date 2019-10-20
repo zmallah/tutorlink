@@ -66,8 +66,12 @@ ul.header li a {
   min-width: 400px;
   justify-content: left;
 }
+.loginBackground{
+  justify-content: center;
+}
 .content {
-  
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .loginContent {
   padding: 50px;
@@ -134,10 +138,45 @@ ul.header li a {
 
 .search {
   border-radius: 30px;
-  min-width: 800px;
+  min-width: 100px;
+  max-width: 800px;
 }
 
 .search-pre {
-  margin-left: 20vw;
   border-radius: 30px;
+}
+
+.searchbar {
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.modal-body h3{
+  height: 14px;
+  opacity: 0.8;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: left;
+  color: #393b3e;
+}
+
+.modal-body p{
+  height: 14px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: left;
+  color: #45474b;
+  display: block;
+  padding-left: 2px;
+  padding-top: 1px;
 }

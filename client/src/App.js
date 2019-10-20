@@ -11,12 +11,10 @@ const App = (props) => {
   return (
     <Router>
       <div className="background">
-        <div className="content">
           <Switch>
             <Route path="/login" render={(props) => <Login {...props} setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>} />
             <Route path="/" render={() => <Home user={user}/>} />
           </Switch>
-        </div>
       </div>
     </Router>
   )

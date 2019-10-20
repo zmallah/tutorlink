@@ -8,6 +8,7 @@ import { Container, Row, Col, Image } from 'react-bootstrap';
 
 const Login = (props) => {
   const [email, setEmail] = useState(false);
+  const {loggedIn, setLoggedIn} = props;
 
   const continueToPass = (email) => {
     setEmail(email);
@@ -27,7 +28,7 @@ const Login = (props) => {
               alt="Tutorlink"
             />
             
-            {!email ? <EnterUsername continue={continueToPass} />  : <EnterPass email={email}/>}
+            {!email ? <EnterUsername continue={continueToPass} />  : <EnterPass email={email} setLoggedIn={setLoggedIn}/>}
 
           </div>
         </Col>

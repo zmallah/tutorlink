@@ -11,7 +11,7 @@ class SearchBar extends React.Component {
       this.props.onSearch(input.value);
     };
     return (
-      <InputGroup className="">
+      <InputGroup className="searchbar">
         <InputGroup.Prepend>
           <InputGroup.Text className="search-pre"><FontAwesomeIcon icon={faSearch} className="search-icon" /></InputGroup.Text>
         </InputGroup.Prepend>
