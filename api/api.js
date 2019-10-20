@@ -25,13 +25,18 @@ app.post('/api/users/verifyLogin', async (req, res) => {
 });
 
 app.post('/api/Groups/create', (req, res) => {
-  var result = await Group.create(req);
-  res.send({result});
+  var result = Group.create(req);
+  res.send(result);
 });
 
-app.post('/api/Groups/update', (req, res) =>{
-  Group.update(req);
-  res.send({updateSuccess: true});
+app.post('/api/Groups/find', async (req, res) => {
+  var result = await Group.find(req);
+  res.send(result);
+});
+
+app.post('/api/Groups/update', async (req, res) =>{
+  var result = await Group.update(req);
+  res.send(result);
 });
 
 app.listen(app.port, () => console.log(`Listening on port ${app.port}`));
