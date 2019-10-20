@@ -11,7 +11,7 @@ class EnterUsername extends React.Component {
 
   validateEmail(email){
     const expression = /\S+@\S+/
-    return expression.test(email.toLowerCase())
+    return true;
   }
 
   continue(event) {

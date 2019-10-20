@@ -4,24 +4,19 @@ import { Card, Button, Modal, Row, Container } from "react-bootstrap";
 
 const TutorPreview = props => {
     const [show, setShow] = useState(false);
-
+    const {group} = props;
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const group = {
-        "tutor": "Mr. John Smith",
-        "subject": "Physics",
-        "description": "Some quick example text to build on the card title and make up the bulk of the card's content."
-    };
-
+    console.log(group);
     return (
         <>
             <Card style={{ width: "16rem", marginTop: "5px" }}>
                 {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                 <Card.Body>
-                    <Card.Title>{group.tutor}</Card.Title>
+                    <Card.Title>{group.name}</Card.Title>
                     <Card.Subtitle>{group.subject}</Card.Subtitle>
                     <Card.Text>
-                        {group.description.substring(0, 80) + "..."}
+                        {group.description ? group.description.substring(0, 80) + "..." : ""}
                     </Card.Text>
                     <Button variant="primary" onClick={handleShow}>
                         Details

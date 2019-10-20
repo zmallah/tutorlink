@@ -3,17 +3,18 @@ import { Form, ButtonToolbar, Button } from 'react-bootstrap';
 
 import { Redirect } from 'react-router-dom';
 
+const API_URL = 'http://localhost:5000'
+
 const EnterPass = (props) => {
   const [password, setPassword] = useState(false);
-  const {loggedIn, setLoggedIn} = props;
+  const {loggedIn, setLoggedIn, setUser} = props;
 
   const handleChange = (event) => {
     setPassword(event.target.value);
   }
 
   const validateEmail = (email) => {
-    const expression = /\S+@\S+/
-    return expression.test(email.toLowerCase())
+    return true;
   }
 
   const validatePassword = (password) => {
@@ -22,12 +23,23 @@ const EnterPass = (props) => {
 
   const login = (event) => {
     event.preventDefault();
-    if (!validatePassword(password)) {
-      alert("Unable to continue without entering a valid password")
-    } else {
-      setLoggedIn(true);
+
+      fetch(API_URL + '/api/users/verifyLogin', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: props.email,
+          password: password
+        }),
+      }).then((res) => res.json()).then(resJson => {
+        setLoggedIn(true);
+        setUser(resJson.user);
+      })
+      
       //login(props.email, password);
-    }
   }
   
   const changePassword = () => {
@@ -36,11 +48,6 @@ const EnterPass = (props) => {
     } else {
       props.auth.changePassword(props.email);
     }
-  }
-
-  if(loggedIn){
-    return <Redirect to="/dashboard"/>  
-  
   }
 
   return (

@@ -1,22 +1,39 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
-import { Card, Container, Col, Row } from 'react-bootstrap';
+import {  Container,  Row } from 'react-bootstrap';
 import TutorPreview from './TutorPreview';
 
+const API_URL = 'http://localhost:5000'
+
 const Groups = (props) => {
+
+    const [groups, setGroups] = useState();
+    const [tP, setTP] = useState();
+    useEffect(() => {
+       
+        fetch(API_URL + '/api/Groups/find', {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+            }),
+          }).then((res) => res.json()).then(resJson => {
+            var tutorPreviews = [];
+            Object.keys(resJson).forEach(function(group) {
+                tutorPreviews.push(<TutorPreview group={resJson[group]}/>)
+            });
+            setTP(tutorPreviews);
+          })
     
+      }, []);
+
+
     return (
         <Container>
             <Row>
-                <Col md><TutorPreview/></Col>
-                <Col md><TutorPreview/></Col>
-                <Col md><TutorPreview/></Col>
-                <Col md><TutorPreview/></Col>
-                <Col md><TutorPreview/></Col>
-                <Col md><TutorPreview/></Col>
-                <Col md><TutorPreview/></Col>
-                <Col md><TutorPreview/></Col>
-                <Col md><TutorPreview/></Col>
+                {tP}
             </Row>
         </Container>
     );
