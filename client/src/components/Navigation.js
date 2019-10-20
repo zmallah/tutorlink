@@ -19,7 +19,7 @@ const Navigation = (props) => {
   }
 
   return (
-    <Container className="NavContainer">
+    <Container className="NavContainer" style =  {{backgroundColor: "#F9564F"}}>
       <Navbar variant="light" expand="lg" className="NavBar" >
         <Navbar.Brand>
           <img
