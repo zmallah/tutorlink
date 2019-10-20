@@ -32,28 +32,17 @@ const create = (req) => {
     return {'group': newGroup, 'creationSuccess': true};
 }
 
-//too lazy to do relevant first sort
 const find = async (req) => {
-    // var list = await Group.find({$and: [{$or: [{name: req.body.name},
-    //                             {subject: req.body.subject}]},
-    //                             {display: true}]});
+    var list = await Group.find({$and: [{$or: [{name: req.body.name},
+                                 {subject: req.body.subject}]},
+                                 {display: true}]});
 
-    var list = await Group.find({});
+    //var list = await Group.find({});
     console.log(list);
     return list;
 }
 
-//could use this for both group owner updating
-//and join, where join only send the member name
-//in the request
 const update = async (req) => {
-    //not sure how req is going to pass the entire
-    //object through. the idea here was after finding
-    //the group (using find func above), clicking the
-    //group would send a request for that group (and
-    //_id would also be sent when the list of groups
-    //is found).
-    //wasnt sure how it would send, so left as _id for now
     var group = await Group.findOne({name: req.body.name});
     if(group === null){
         return {'group': null, 'updateSuccess': false};
@@ -61,7 +50,7 @@ const update = async (req) => {
         if(req.body.name !== null) group.name = req.body.name;
         if(req.body.owner !== null) group.owner = req.body.owner;
         if(req.body.tutor !== null) group.tutor = req.body.tutor;
-        if(req.body.user !== null) group.members.push({user: req.body.user})
+        if(req.body.members !== null) group.members.push({user: req.body.members})
         if(req.body.date !== null) group.date = req.body.date;
         if(req.body.cost !== null) group.cost = req.body.cost;
         if(req.body.active !== null) group.active = req.body.active;
