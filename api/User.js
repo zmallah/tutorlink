@@ -1,18 +1,27 @@
-import User from './schemas/UserSchema';
+const mongoose = require('mongoose');
 
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://davidezra:tutor@tutorlinkdb-odr6c.mongodb.net/test?retryWrites=true&w=majority";
-var dbName;
+const schema = mongoose.schema;
+const UserSchema = require('./schemas/UserSchema');
 
+const user = mongoose.model('Users', UserSchema);
 
-MongoClient.connect(uri, function(err, db){
-	if (err) throw err;
+const create = (req) => {
+    var newuser = new user ({
+        _id: new mongoose.Types.ObjectId(),
+        username: req.body.username,
+        password: req.body.password,
+        rating: 100,
+        group: null
+    });
     
-    dbName = db.db("TLDB");
+    user.create(function (err, newuser) {
+        if (err) return handleError(err);
+    });
+    
+    newuser.save(function (err, newuser){
+        if (err) return handleError(err);
+    });
 
-	dbName.createCollection("Users", function(err, res){
-		if(err) throw err;
-		console.log("C");
-		db.close();
-	});
-});
+}
+
+module.exports = {create};

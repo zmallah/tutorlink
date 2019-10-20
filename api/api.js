@@ -1,21 +1,24 @@
-const config = require('../config.json');
 const express = require('express');
 const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
+
+const db = require('./db');
+
+const User = require('./User');
 
 const app = express();
-app.port = config.api.port || 5000;
+app.port = 5000;
 
-app.transporter = nodemailer.createTransport({
-    service: config.email.service,
-    auth: {
-      user: config.email.user,
-      pass: config.email.pass
-    }
-  });  
-
-app.config = config;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.post('/api/users/create', (req, res) => {
+  User.create(req);
+  res.send({ 
+    creationSuccess: true
+  });
+});
+
+
+app.listen(app.port, () => console.log(`Listening on port ${app.port}`));
 
 module.exports = app;
