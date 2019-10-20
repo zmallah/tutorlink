@@ -54,7 +54,7 @@ const update = async (req) => {
     //_id would also be sent when the list of groups
     //is found).
     //wasnt sure how it would send, so left as _id for now
-    var group = await Group.findOne({_id: req.body._id});
+    var group = await Group.findOne({name: req.body.name});
     if(group === null){
         return {'group': null, 'updateSuccess': false};
     }else{
@@ -76,7 +76,7 @@ const update = async (req) => {
 const delet = async (req) => {
     //same idea here. user clicks on a group from a list
     //and that sends the request which sends _id
-    var group = await Group.findOne({_id: req.body._id});
+    var group = await Group.findOne({name: req.body.name});
     if(group === null){
         return {'group': null, 'deleteSuccess': false};
     }else{

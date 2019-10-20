@@ -11,6 +11,14 @@ const create = () =>{
         name: 'arc',
         groups: null
     })
+
+    Archive.create(function (err, newArchive){
+        if (err) return handleError(err);
+    });
+
+    newArchive.save(function (err, newArchive){
+        if (err) return handleError(err);
+    });
 }
 
 const add = async (group) => {
@@ -19,4 +27,8 @@ const add = async (group) => {
     archive.groups.update({group: group});
 }
 
-module.exports = {create, add};
+const find = async () => {
+    return await Archive.findOne({name: 'arc'});
+}
+
+module.exports = {create, add, find};
